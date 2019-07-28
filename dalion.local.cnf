@@ -1,0 +1,61 @@
+HOME            = .
+RANDFILE        = $ENV::HOME/.rnd
+
+####################################################################
+[ req ]
+default_bits        = 2048
+default_keyfile     = dalion.local.key
+default_md			= sha256
+encrypt_key			= no
+distinguished_name  = dalion_distinguished_name
+req_extensions      = dalion_req_extensions
+string_mask         = utf8only
+
+####################################################################
+[ dalion_distinguished_name ]
+countryName                 = Country Name (2 letter code)
+countryName_default         = BE
+
+stateOrProvinceName         = State or Province Name (full name)
+stateOrProvinceName_default = Oost-Vlaanderen
+
+localityName                = Locality Name (eg, city)
+localityName_default        = Wachtebeke
+
+organizationName            = Organization Name (eg, company)
+organizationName_default    = Dalion
+
+commonName                  = Common Name (e.g. server FQDN or YOUR name)
+commonName_default          = *.dalion.local
+
+####################################################################
+[ dalion_req_extensions ]
+
+subjectKeyIdentifier        = hash
+basicConstraints            = CA:FALSE
+keyUsage                    = digitalSignature, keyEncipherment
+extendedKeyUsage			= serverAuth, clientAuth
+subjectAltName              = @dalion_subject_alt_names
+
+####################################################################
+[ dalion_subject_alt_names ]
+
+DNS.1  = dalion.local
+
+# Catch all entry for dalion.local sub domains
+
+DNS.2  = *.dalion.local
+
+# Localhost
+
+DNS.3  = localhost
+
+# Developer PCs
+
+DNS.4  = hp-dli
+DNS.5  = hp-dl
+
+# More localhost
+
+IP.1    = 127.0.0.1
+IP.2    = ::1

@@ -1,0 +1,2 @@
+V	390723204642Z		00	unknown	/C=BE/ST=Oost-Vlaanderen/O=Dalion/CN=*.dalion.local
+V	390723213709Z		01	unknown	/C=BE/ST=Oost-Vlaanderen/O=Dalion/CN=*.dalion.local
